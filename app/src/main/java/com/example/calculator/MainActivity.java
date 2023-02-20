@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView n1,n2,n3,n4,n5,n6,n7,n8,n9,n00,n0,input,plus,ans,ac;
+    TextView n1,n2,n3,n4,n5,n6,n7,n8,n9,n00,n0,input,plus,ans,ac,minus,multi,divide;
 
     int num1,num2,sign;
 
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         plus = findViewById(R.id.plus);
         ans = findViewById(R.id.ans);
         ac = findViewById(R.id.ac);
+        minus=findViewById(R.id.minus);
+        multi=findViewById(R.id.multi);
+        divide=findViewById(R.id.divide);
 
         ac.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +133,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String num = input.getText().toString();
+                num1 = Integer.parseInt(num);
+                input.setText("");
+                sign = 2;
+            }
+        });
+        multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String num = input.getText().toString();
+                num1 = Integer.parseInt(num);
+                input.setText("");
+                sign = 3;
+            }
+        });
+
+        divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String num = input.getText().toString();
+                num1 = Integer.parseInt(num);
+                input.setText("");
+                sign = 4;
+            }
+        });
         ans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +177,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         input.setText(""+(num1-num2));
+                        break;
+                    case 3:
+                        input.setText(""+(num1*num2));
+                        break;
+                    case 4:
+                        input.setText(""+(num1/num2));
                         break;
                 }
 
